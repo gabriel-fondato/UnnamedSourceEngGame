@@ -110,7 +110,7 @@ ConVar player_showpredictedposition_timestep( "player_showpredictedposition_time
 ConVar player_squad_transient_commands( "player_squad_transient_commands", "1", FCVAR_REPLICATED );
 ConVar player_squad_double_tap_time( "player_squad_double_tap_time", "0.25" );
 
-ConVar sv_infinite_aux_power( "sv_infinite_aux_power", "0", FCVAR_CHEAT );
+ConVar sv_infinite_aux_power( "sv_infinite_aux_power", "1", FCVAR_CHEAT );
 
 ConVar autoaim_unlock_target( "autoaim_unlock_target", "0.8666" );
 
@@ -643,12 +643,12 @@ CHL2_Player::CHL2_Player()
 //
 // SUIT POWER DEVICES
 //
-#define SUITPOWER_CHARGE_RATE	12.5											// 100 units in 8 seconds
+#define SUITPOWER_CHARGE_RATE	99.9											// 100 units in 8 seconds
 
 #ifdef HL2MP
 	CSuitPowerDevice SuitDeviceSprint( bits_SUIT_DEVICE_SPRINT, 25.0f );				// 100 units in 4 seconds
 #else
-	CSuitPowerDevice SuitDeviceSprint( bits_SUIT_DEVICE_SPRINT, 12.5f );				// 100 units in 8 seconds
+	CSuitPowerDevice SuitDeviceSprint( bits_SUIT_DEVICE_SPRINT, 99.9f );				// 100 units in 8 seconds
 #endif
 
 #ifdef HL2_EPISODIC
@@ -682,8 +682,8 @@ void CHL2_Player::Precache( void )
 {
 	BaseClass::Precache();
 
-	PrecacheScriptSound( "HL2Player.SprintNoPower" );
-	PrecacheScriptSound( "HL2Player.SprintStart" );
+	//PrecacheScriptSound( "HL2Player.SprintNoPower" );
+	//PrecacheScriptSound( "HL2Player.SprintStart" );
 	PrecacheScriptSound( "HL2Player.UseDeny" );
 	PrecacheScriptSound( "HL2Player.FlashLightOn" );
 	PrecacheScriptSound( "HL2Player.FlashLightOff" );
